@@ -31,6 +31,7 @@ class Response extends AbstractResponse
             }
         }
         if (!$result->isOK) {
+            $result->errorCode = $body['errorCode'] ?? $statusCode;
             $result->errorMessage = $body['errorMsg'] ?? $response->getStatusMessage();
         }
         return $result;
